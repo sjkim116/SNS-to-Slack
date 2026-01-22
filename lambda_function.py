@@ -1,5 +1,5 @@
 """
-AWS Lambda: CloudWatch Alarm Slack Notifier (Resilient SNS Parsing)
+AWS Lambda: CloudWatch Alarm Slack Notifier (임시 브랜치)
 - CloudWatch 단일/다중 지표 알람을 Slack에 간결하게 전송
 - SNS 메시지 파싱 오류를 별도로 처리하여 알림 실패 방지
 - 다중지표는 인스턴스 이름 캐싱 및 실측값 출력
