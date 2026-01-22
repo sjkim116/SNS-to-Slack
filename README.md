@@ -19,14 +19,39 @@ AWS CloudWatch에서 발생하는 경보를 지정된 Slack 채널로 전송하�
 ## Slack 알림 예시
 
 ### 단일 지표 경보 (ALARM 상태)
-!단일 지표 경보 예시
+
+> **[ALARM]** `85.3 %` | `WebApp-CPU-Utilization-High`
+>
+> `AWS/EC2/CPUUtilization` / `InstanceId=i-0123456789abcdef0` / 85.3 % (Average/300s)
+> 사유: Threshold Crossed: 1 datapoint [85.3 (22/01/26 14:35:00)] was greater than or equal to the threshold (80.0).
+> 시각: 2026-01-22T14:40:15 Asia/Seoul
+> 설명: Web Application CPU usage is critically high.
+> *최근 알람 이벤트:*
+> - 2026-01-22T14:40:15 Asia/Seoul : `Alarm updated from OK to ALARM`
+> - 2026-01-22T13:10:05 Asia/Seoul : `Alarm updated from ALARM to OK`
+> - 2026-01-22T11:25:15 Asia/Seoul : `Alarm updated from OK to ALARM`
+> <https://ap-northeast-2.console.aws.amazon.com/cloudwatch/home?region=ap-northeast-2#alarmsV2:|경보 바로가기> | <https://ap-northeast-2.console.aws.amazon.com/cloudwatch/home?region=ap-northeast-2#dashboards/|대시보드 바로가기>
 
 ### 다중 지표 경보 (OK 상태)
-!다중 지표 경보 예시
+
+> **[OK]** `? %` | `WebApp-Composite-High-CPU-And-Memory`
+>
+> 75.1 % / `AWS/EC2/CPUUtilization` / `WebApp-Prod-Instance` (Average/300s)
+> 68.9 % / `CWAgent/mem_used_percent` / `WebApp-Prod-Instance` (Average/300s)
+> 사유: Alarm "WebApp-Memory-Utilization-High" has returned to OK state.
+> 시각: 2026-01-22T15:20:45 Asia/Seoul
+> 설명: Composite alarm for both CPU and Memory.
+> *최근 알람 이벤트:*
+> - 2026-01-22T15:20:45 Asia/Seoul : `Alarm updated from ALARM to OK`
+> - 2026-01-22T14:40:15 Asia/Seoul : `Alarm updated from OK to ALARM`
+> - 2026-01-22T13:55:30 Asia/Seoul : `Alarm updated from ALARM to OK`
+> <https://ap-northeast-2.console.aws.amazon.com/cloudwatch/home?region=ap-northeast-2#alarmsV2:|경보 바로가기> | <https://ap-northeast-2.console.aws.amazon.com/cloudwatch/home?region=ap-northeast-2#dashboards/|대시보드 바로가기>
 
 ### 오류 발생 시
-!오류 메시지 예시
 
+> **[ERROR]** Slack 알림 처리 실패
+>
+> :warning: SNS 메시지 파싱 예외 발생: `'AlarmName'`
 
 ## 구성 및 설치 방법
 
